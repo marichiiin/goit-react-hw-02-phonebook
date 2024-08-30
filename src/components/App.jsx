@@ -15,6 +15,10 @@ export class App extends Component {
     // ]
   };
 
+  // Create a function for handling the changes in the name input
+  // Create a function for handling the changes in the number input
+  // Create a function for handling the submit button
+
   render () {
     return (
       <>
