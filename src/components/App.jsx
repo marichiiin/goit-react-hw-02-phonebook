@@ -16,21 +16,40 @@ export class App extends Component {
   };
 
   // Create a function for handling the changes in the name input
+  handleNameChange = e => {
+
+  }
   // Create a function for handling the changes in the number input
   // Create a function for handling the submit button
 
-  render () {
+  render() {
+    const { contacts, filter } = this.state;
     return (
-      <>
-        <div>
+      <form>
+          <h1>Phonebook</h1>
+          <label>
+            Name 
+            <input 
+              type="text"
+              name="name"
+              pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
+              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan."
+              required
+              value={contacts}
+
+            />
+          </label>
+        
+      </form>
+    )
+  }
+}
+
+{/* <div>
           <h1>Phonebook</h1>
           <ContactForm/>
 
           <h2>Contacts</h2>
           <Filter/>
           <ContactList/>
-        </div>
-      </>
-    )
-  }
-}
+        </div> */}
