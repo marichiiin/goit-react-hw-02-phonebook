@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './SearchFilter/SearchFilter';
+import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 
 export class App extends Component {
@@ -15,32 +15,22 @@ export class App extends Component {
     // ]
   };
 
-  // Create a function for handling the changes in the name input
-  handleNameChange = e => {
-
-  }
-  // Create a function for handling the changes in the number input
-  // Create a function for handling the submit button
+  // Create a function that add contact
+  // Create a function that delete contact
+  // Create a function that filter the contacts
+  // Create a arrow function that returns the lowercase version of the value of the filter input
 
   render() {
     const { contacts, filter } = this.state;
     return (
-      <form>
-          <h1>Phonebook</h1>
-          <label>
-            Name 
-            <input 
-              type="text"
-              name="name"
-              pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan."
-              required
-              value={contacts}
+      <div>
+        <h1>Phonebook</h1>
+        <ContactForm /> {/* Pass the funtion for adding contacts and the state contacts*/}
 
-            />
-          </label>
-        
-      </form>
+        <h2>Contacts</h2>
+        <Filter /> {/* Pass the filter state and the function that filter the contacts*/}
+        <ContactList /> {/* Pass the filter arrow function and the function that deletes the contacts*/}
+      </div>
     )
   }
 }
