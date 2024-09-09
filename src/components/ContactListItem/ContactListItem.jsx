@@ -1,10 +1,13 @@
-import { Component } from 'react';
+
 // import PropTypes from 'prop-types';
 
 //This is a functional Component
-export const ContactListItem = () => {
+export const ContactListItem = ({name, number}) => {
         return (
-            <h1>Contact List Item</h1>
+            <li>
+                {name}:
+                <span>{number}</span>
+            </li>
         )
     
 }

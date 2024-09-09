@@ -26,6 +26,7 @@ export class ContactForm extends Component {
     e.preventDefault();
     const { name, number } = this.state;
     const {addContact, contacts } = this.props;
+    // If the name/number field is empty exit this function
     if(name.trim() === '' || number.trim() === '') {
       return;
     }

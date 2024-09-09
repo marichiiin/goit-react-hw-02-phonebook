@@ -1,13 +1,20 @@
-import { Component } from 'react';
+import { ContactListItem } from '../ContactListItem/ContactListItem';
+
 // import PropTypes from 'prop-types';
 
 //This is a functional Component
 
-export const ContactList = () => {
+export const ContactList = ({ contacts }) => {
     return (
         <ul>
-
-        //map the filtered Contacts
+            {contacts.map(({id, name, number}) => (
+                <ContactListItem 
+                    key = {id}
+                    id = {id}
+                    name = {name}
+                    number = {number}
+                />
+            ))}
         </ul>
     )
 }

@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import { ContactForm } from './ContactForm/ContactForm';
-import { Filter } from './Filter/Filter';
+//import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 
 
@@ -109,6 +109,11 @@ export class App extends Component {
   };
 
   // Create a function that add contact
+  addContact = newContact => {
+    this.setState(prevState =>({
+      contacts: [...prevState.contacts, newContact],
+    }));
+  }
   // Create a function that delete contact
   // Create a function that filter the contacts
   // Create a arrow function that returns the lowercase version of the value of the filter input
@@ -123,6 +128,7 @@ export class App extends Component {
         <h2>Contacts</h2>
         <Filter filter={filter} setFilter={this.setFilter} /> {/* Pass the filter state and the function that filter the contacts*/}
        {/* <ContactList />  Pass the filter arrow function and the function that deletes the contacts*/}
+        <ContactList contacts={contacts} />
       </div>
     )
   }
