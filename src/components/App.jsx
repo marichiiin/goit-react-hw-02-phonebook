@@ -99,7 +99,7 @@ import { ContactList } from './ContactList/ContactList';
 export class App extends Component {
   state = {
     // contacts: [],
-    filter: '',
+    //filter: '',
     contacts: [
       {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
       {id: 'id-2', name: 'Hermione Kline', number: '443-89-12'},
@@ -119,7 +119,7 @@ export class App extends Component {
   // Create a arrow function that returns the lowercase version of the value of the filter input
 
   render() {
-    const { contacts, filter } = this.state;
+    const { contacts } = this.state;
     return (
       <div>
         <h1>Phonebook</h1>
