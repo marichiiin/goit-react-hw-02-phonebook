@@ -2,12 +2,15 @@
 // import PropTypes from 'prop-types';
 
 //This is a functional Component
-export const ContactListItem = ({name, number, deleteContact}) => {
+export const ContactListItem = ({id, name, number, deleteContact}) => {
+    const handleDelete = () => {
+        deleteContact(id);
+    }
         return (
             <li>
                 {name}:
                 <span>{number}</span>
-                <button onClick={deleteContact}> Delete </button>
+                <button onClick={handleDelete}> Delete </button>
             </li>
         )
     
