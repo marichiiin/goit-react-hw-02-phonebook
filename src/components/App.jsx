@@ -115,6 +115,13 @@ export class App extends Component {
     }));
   }
   // Create a function that delete contact
+  deleteContact = id => {
+    this.setState(prevState =>({
+      contacts: prevState.contacts.filter(contact => {
+        contact.id !== id
+      }),
+    }));
+  };
   // Create a function that filter the contacts
   // Create a arrow function that returns the lowercase version of the value of the filter input
 
@@ -128,7 +135,7 @@ export class App extends Component {
         <h2>Contacts</h2>
         <Filter filter={filter} setFilter={this.setFilter} /> {/* Pass the filter state and the function that filter the contacts*/}
        {/* <ContactList />  Pass the filter arrow function and the function that deletes the contacts*/}
-        <ContactList contacts={contacts} />
+        <ContactList contacts={contacts} deleteContact={this.deleteContact} />
       </div>
     )
   }
