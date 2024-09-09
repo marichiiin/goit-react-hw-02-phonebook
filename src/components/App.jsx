@@ -117,9 +117,7 @@ export class App extends Component {
   // Create a function that delete contact
   deleteContact = id => {
     this.setState(prevState =>({
-      contacts: prevState.contacts.filter(contact => {
-        contact.id !== id
-      }),
+      contacts: prevState.contacts.filter(contact => contact.id !== id),
     }));
   };
   // Create a function that filter the contacts
