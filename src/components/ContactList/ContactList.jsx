@@ -1,26 +1,23 @@
 import { ContactListItem } from '../ContactListItem/ContactListItem';
+import PropTypes from 'prop-types';
 
-// import PropTypes from 'prop-types';
 
-//This is a functional Component
-
-export const ContactList = ({ contacts, deleteContact }) => {
+export const ContactList = ({ filterContact, deleteContact }) => {
+    const filteredContacts = filterContact()
     return (
         <ul>
-            {contacts.map(({id, name, number}) => (
-                <ContactListItem 
-                    key = {id}
-                    id = {id}
-                    name = {name}
-                    number = {number}
+            {filteredContacts.map((filteredContact) => (
+                <ContactListItem
+                    key = {filteredContact.id}
+                    filteredContact = {filteredContact}
                     deleteContact = {deleteContact}
                 />
-            ))}
+            ))};
         </ul>
     )
 }
 
-// ContactList.propTypes = {
-    
-
-// };
+ContactList.propTypes = {
+    filterContact: PropTypes.func.isRequired,
+    deleteContact: PropTypes.func.isRequired,
+};

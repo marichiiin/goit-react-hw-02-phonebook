@@ -1,12 +1,18 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-// import PropTypes from 'prop-types';
-
-//this should be in a class component
-//Use only the class component on components that uses the state
+import PropTypes from 'prop-types';
 
 export class ContactForm extends Component {
-  //static propTypes = {};
+  static propTypes = {
+    addContact: PropTypes.func.isRequired,
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      })
+    ),
+  };
   state = {
     name: '',
     number: '',

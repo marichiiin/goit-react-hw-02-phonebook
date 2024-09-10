@@ -1,21 +1,21 @@
+import PropTypes from 'prop-types';
 
-// import PropTypes from 'prop-types';
 
-//This is a functional Component
-export const ContactListItem = ({id, name, number, deleteContact}) => {
+export const ContactListItem = ({filteredContact, deleteContact}) => {
     const handleDelete = () => {
-        deleteContact(id);
-    }
+        deleteContact(filteredContact.id);
+    };
         return (
             <li>
-                {name}:
-                <span>{number}</span>
+                <span>{filteredContact.name}: </span>
+                <span>{filteredContact.number} </span>
                 <button onClick={handleDelete}> Delete </button>
             </li>
-        )
-    
-}
+        );
 
-// ContactListItem.propTypes = {
-    
-// };
+};
+
+ContactListItem.propTypes = {
+  filteredContact: PropTypes.object.isRequired,
+  deleteContact: PropTypes.func.isRequired,
+};
